@@ -20,7 +20,7 @@ function! airline#extensions#tabline#unique_tail#format(bufnr, buffers)
   endfor
 
   for nr in values(duplicates)
-    let map[nr] = airline#extensions#tabline#default#wrap_name(nr, fnamemodify(bufname(nr), ':p:.'))
+    let map[nr] = airline#extensions#tabline#default#format(nr, fnamemodify(bufname(nr), ':p:.'))
   endfor
 
   return map[a:bufnr]
