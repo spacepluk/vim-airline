@@ -75,11 +75,7 @@ function! s:toggle_on()
   else
     augroup airline_tabline
       autocmd!
-      if s:show_buffers == 1
-        autocmd CursorMoved * call <sid>on_cursormove(s:buf_min_count, len(s:get_buffer_list()))
-      else
-        autocmd TabEnter * call <sid>on_cursormove(s:tab_min_count, tabpagenr('$'))
-      endif
+      autocmd CursorMoved * call <sid>on_cursormove(s:buf_min_count, len(s:get_buffer_list()))
     augroup END
   endif
 endfunction
@@ -122,16 +118,17 @@ function! s:on_cursormove(min_count, total_count)
 endfunction
 
 function! airline#extensions#tabline#get()
-  let curtabcnt = tabpagenr('$')
-  if curtabcnt != s:current_tabcnt
-    let s:current_tabcnt = curtabcnt
-    let s:current_bufnr = -1  " force a refresh...
-  endif
-  if s:show_buffers && curtabcnt == 1
-    return s:get_buffers()
-  else
-    return s:get_tabs()
-  endif
+  "let curtabcnt = tabpagenr('$')
+  "if curtabcnt != s:current_tabcnt
+    "let s:current_tabcnt = curtabcnt
+    "let s:current_bufnr = -1  " force a refresh...
+  "endif
+  "if s:show_buffers && curtabcnt == 1
+    "return s:get_buffers()
+  "else
+    "return s:get_tabs()
+  "endif
+  return s:get_buffers()
 endfunction
 
 function! airline#extensions#tabline#title(n)
