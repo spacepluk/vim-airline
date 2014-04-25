@@ -27,9 +27,6 @@ let s:RE = [ '#ffffff' , '#d70000' , 231 , 160 ] " white          & brightred
 let g:airline#themes#xoria256#palette = {}
 
 let g:airline#themes#xoria256#palette.normal = airline#themes#generate_color_map(s:N1, s:N2, s:N3)
-let g:airline#themes#xoria256#palette.normal_modified = {
-        \ 'airline_a': [ '#ffb964', '', 215, '', '' ]
-        \ }
 
 let g:airline#themes#xoria256#palette.insert = airline#themes#generate_color_map(s:I1, s:N2, s:N3)
 let g:airline#themes#xoria256#palette.insert_replace = {
